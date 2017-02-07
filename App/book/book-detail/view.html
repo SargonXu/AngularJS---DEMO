@@ -1,0 +1,6 @@
+<div class="jumbotron">
+	<h3>{{book.subtitle||book.title}}</h3>
+	<img ng-src="{{book.images.medium}}" alt="">
+	<p ng-show="!!book.author_intro"><strong>作者介绍：</strong>{{book.author_intro}}</p>
+	<p ng-show="!!book.summary"><strong>内容简介：</strong>{{book.summary}}</p>
+</div>

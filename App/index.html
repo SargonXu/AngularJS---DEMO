@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>豆瓣app</title>
+	<link rel="stylesheet" href="lib/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
+	<!-- 头部导航栏 -->
+	<nav class="navbar navbar-default row" role="navigation">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" id="collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#"><strong>豆瓣</strong></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active" auto-Focus><a href="#/movie">电影</a></li>
+	        <li auto-focus><a href="#/music/search/华语/1?">音乐</a></li>
+	        <li auto-Focus><a href="#/book/流行">书籍</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+		<!-- 主体内容显示模块 -->
+	<div ng-view class="content row container"></div>
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-route.min.js"></script>
+	<script src="app.js"></script>
+	<script src="plugins/HttpService.js"></script>
+	<script src="plugins/autoFocus.js"></script>
+	<script src="movie/controller.js"></script>
+	<script src="movie/movie-detail/controller.js"></script>
+	<script src="music/controller.js"></script>
+	<script src="music/music-detail/controller.js"></script>
+	<script src="book/controller.js"></script>
+	<script src="book/book-detail/controller.js"></script>
+<!-- 	<script src="book/book-detail/controller.js"></script> -->
+</body>
+</html>

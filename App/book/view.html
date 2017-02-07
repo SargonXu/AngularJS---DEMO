@@ -1,0 +1,49 @@
+<ul class="nav nav-pills nav-stacked col-xs-3 text-center" role="tablist">
+  <li class="text-left" role="presentation" auto-Focus><a href="#/book/流行">流行</a></li>
+  <li class="text-left" role="presentation" auto-Focus><a href="#/book/文化">文化</a></li>
+  <li class="text-left" role="presentation" auto-Focus><a href="#/book/生活">生活</a></li>
+  <li class="text-left" role="presentation" auto-Focus><a href="#/book/科技">科技</a></li>
+  <li class="text-left" role="presentation" auto-Focus><a href="#/book/经管">经管</a></li>
+  <li role="presentation">
+  	<form class="row text-center" role="search" ng-controller="BookSearchController" ng-submit="search()">
+	    <div class="form-group col-xs-8">
+	      <input type="text" class="form-control" ng-model="input">
+	    </div>
+	    <button type="submit" class="btn btn-default col-xs-3 text-center">搜索</button>
+	  </form>
+  </li>
+</ul>
+<div  class="col-xs-8" ng-show="!loading">
+	<h3>{{title}}</h3><hr>
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="item in data">
+			<span class="badge">{{item.rating.average}}</span>
+		    <div class="media">
+					<a class="media-left" ng-click="" href="#/book/subject/detail/1/{{item.id}}">
+			    	<img ng-src="{{item.images.small}}" alt="{{item.title}}" height="128">
+			  	</a>
+			  	<div class="media-body">
+			    <h4 class="media-heading">{{item.subtitle||item.title}}</h4>
+			    <p>作者：<span>{{item.author[0]}}</span></p>
+			    <p ng-show="!!item.series.title">丛书系列：<span>{{item.series.title}}</span></p>
+			    <p><span ng-show="item.publisher">{{"出版商："+item.publisher}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+			    	<span ng-show="!!item.pubdate">{{"出版日期："+item.pubdate}}</span>
+			    </p>
+			    <p ng-show="item.price">价格：<span>{{item.price}}</span></p>
+			  	</div>
+			</div>
+		</li>
+	</ul><hr>
+	<p>总共：{{total}}条记录，第{{currentPage}}/{{pages}}页</p>
+	<div>
+	  <ul class="pager">
+	    <li ng-class="{disabled:currentPage<=1}">
+	    	<a href="javascript:" ng-click="updatePage(currentPage - 1)">上一页</a>
+	    </li>
+	    <li ng-class="{disabled:currentPage>=pages}">
+	    	<a href="javascript:" ng-click="updatePage(currentPage + 1)">下一页</a>
+	    </li>
+	  </ul>
+	</div>
+</div>
+<!-- </div> -->

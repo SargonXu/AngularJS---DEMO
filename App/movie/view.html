@@ -1,0 +1,52 @@
+<!-- <div class="row">
+	<ul class="nav nav-pills nav-stacked col-md-2 text-center" role="tablist">
+		<li role="presentation" auto-Focus><a href="#/movie/in_theaters/1">正在热映</a></li>
+		<li role="presentation" auto-Focus><a href="#/movie/coming_soon/1">即将上映</a></li>
+		<li role="presentation" auto-Focus><a href="#/movie/top250/1">TOP250</a></li>
+	</ul> -->
+<ul class="nav nav-pills nav-stacked col-xs-3 text-center" role="tablist">
+  <li class="text-left" role="presentation" auto-Focus><a href="#/movie/in_theaters/1">正在热映</a></li>
+  <li class="text-left" role="presentation" auto-Focus><a href="#/movie/coming_soon/1">即将上映</a></li>
+  <li class="text-left" role="presentation" auto-Focus><a href="#/movie/top250/1">TOP250</a></li>
+  <li class="text-left" role="presentation">
+  	<form class="row text-center" role="search" ng-controller="MovieSearchController" ng-submit="search()">
+	    <div class="form-group col-xs-8">
+	      <input type="text" class="form-control" ng-model="input">
+	    </div>
+	    <button type="submit" class="btn btn-default col-xs-3 text-center">搜索</button>
+	  </form>
+  </li>
+</ul>
+<div  class="col-xs-8" ng-show="!loading">
+	<h3>{{title}}</h3><hr>
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="item in data">
+			<span class="badge">{{item.rating.average}}</span>
+		    <div class="media">
+					<a class="media-left" ng-click="" href="#/movie/subject/{{item.id}}">
+			    	<img ng-src="{{item.images.small}}" alt="{{item.title}}" height="128">
+			  	</a>
+			  	<div class="media-body">
+			    <h4 class="media-heading">{{item.title}}</h4>
+			    <p>类型：<span>{{item.genres.join("、")}}</span>&nbsp;&nbsp;&nbsp;&nbsp;上映年份：
+			    	<span>{{item.year}}</span>
+			    </p>
+			    <p>导演：<span ng-repeat="	d in item.directors">{{d.name+(!$last?"、":"")}}</span></p>
+			    <p>主演：<span ng-repeat="	a in item.casts">{{a.name+(!$last?"、":"")}}</span></p>
+			  	</div>
+			</div>
+		</li>
+	</ul><hr>
+	<p>总共：{{total}}条记录，第{{currentPage}}/{{pages}}页</p>
+	<div>
+	  <ul class="pager">
+	    <li ng-class="{disabled:currentPage<=1}">
+	    	<a href="javascript:" ng-click="updatePage(currentPage - 1)">上一页</a>
+	    </li>
+	    <li ng-class="{disabled:currentPage>=pages}">
+	    	<a href="javascript:" ng-click="updatePage(currentPage + 1)">下一页</a>
+	    </li>
+	  </ul>
+	</div>
+</div>
+<!-- </div> -->
