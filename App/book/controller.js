@@ -22,7 +22,7 @@
 		'HttpService',
 		function($scope,$route,$routeParams,HttpService){
 			// 每页显示条数
-			var count = 10;
+			var count = 8;
 			// 当前页
 			var page = 1;
 			// 数据请求的开始数字
